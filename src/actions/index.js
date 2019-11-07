@@ -6,7 +6,7 @@ export const addFeature = (feature) => ({
     payload: feature
 });
 
-export const remove = (id) => ({
+export const remove = (feature) => ({
     type: REMOVE_FEATURE,
-    payload: id
+    payload: feature
 });

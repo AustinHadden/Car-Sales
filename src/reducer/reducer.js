@@ -19,9 +19,9 @@ export const initialState = {
       switch (action.type) {
           case "ADD_FEATURE":
               const feature = state.additionalFeatures.find(item => item.id === action.payload.id);
-              return {...state, additionalPrice: action.payload.price, car: {...state.car, features: [...state.car.features, feature]}};
+              return {...state, additionalPrice: (state.additionalPrice + action.payload.price), car: {...state.car, features: [...state.car.features, feature]}};
               case "REMOVE_FEATURE":
-                  return {...state, car: {...state.car, features:  state.car.features.filter(item => item.id !== action.payload)}}
+                  return {...state, additionalPrice: (state.additionalPrice - action.payload.price), car: {...state.car, features:  state.car.features.filter(item => item.id !== action.payload.id)}}
 
           default:
               return state;
